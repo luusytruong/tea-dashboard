@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import Setting from "@/component/ui/Setting";
 import { fetchGet } from "@/utils/fetch";
 import Script from "next/script";

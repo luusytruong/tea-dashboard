@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import Main from "@/component/layout/Main";
 import { fetchGet } from "@/utils/fetch";
 
