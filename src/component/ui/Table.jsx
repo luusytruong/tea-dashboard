@@ -49,22 +49,24 @@ const Table = ({ data, columns }) => {
       <table className="table-auto w-full mt-6 text-left">
         <thead>
           <tr className="border-b border-gray-100 dark:border-[#fcfcfc10]">
-            {columns?.map((col, index) => (
-              <th
-                key={index}
-                className={`p-4 font-medium opacity-60 ${
-                  col.mobile ? "" : "hidden md:table-cell"
-                }`}
-              >
-                {col.label}
-              </th>
-            ))}
+            {columns &&
+              columns.map((col, index) => (
+                <th
+                  key={index}
+                  className={`p-4 font-medium opacity-60 ${
+                    col.mobile ? "" : "hidden md:table-cell"
+                  }`}
+                >
+                  {col.label}
+                </th>
+              ))}
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-100 dark:divide-[#fcfcfc10]">
-          {data?.map((row, index) => (
-            <TableRow key={index} row={row} columns={columns} />
-          ))}
+          {data &&
+            data.map((row, index) => (
+              <TableRow key={index} row={row} columns={columns} />
+            ))}
         </tbody>
       </table>
     </div>
