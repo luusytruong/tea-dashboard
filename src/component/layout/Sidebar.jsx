@@ -40,18 +40,20 @@ const sidebar = [
   {
     icon: <LogOut size={20} strokeWidth={1.5} />,
     title: "Logout",
-    to: "/logout",
+    onClick: () => {
+      console.log("logout");
+    },
   },
 ];
 
 const Sidebar = () => {
-  const { isOpen } = useSidebar();
+  const { isOpen, isFirstRender } = useSidebar();
 
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.aside
-          initial={{ x: "-100%" }}
+          initial={isFirstRender.current ? false : { x: "-100%" }}
           animate={{ x: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           exit={{ x: "-100%" }}

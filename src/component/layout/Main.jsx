@@ -7,9 +7,9 @@ import Table from "../ui/Table";
 const Main = ({ title, desc, onAdd, onExport, data, columns }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.4 }}
       className="flex-1 flex flex-col gap-4 p-4 md:p-6"
     >
       <div className="flex items-center justify-between">

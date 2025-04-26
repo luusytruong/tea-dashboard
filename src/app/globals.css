@@ -6,10 +6,6 @@
     }
 }
 
-.nav-item:last-child {
-    margin-top: auto;
-}
-
 * {
     /* overscroll-behavior: none; */
     --webkit-overflow-scrolling: touch;

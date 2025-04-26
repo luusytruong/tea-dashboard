@@ -1,7 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
 
-const Button = ({ icon, title, isActive, isDisable, className, onClick }) => {
+const Button = ({
+  icon,
+  title,
+  isActive,
+  isDisable,
+  className,
+  onClick,
+  titleClassName,
+}) => {
   return (
     <motion.button
       onTap={onClick}
@@ -16,7 +24,9 @@ const Button = ({ icon, title, isActive, isDisable, className, onClick }) => {
       disabled={isDisable}
     >
       {icon}
-      {title && <span className="hidden md:block">{title}</span>}
+      {title && (
+        <span className={`hidden md:block ${titleClassName}`}>{title}</span>
+      )}
     </motion.button>
   );
 };

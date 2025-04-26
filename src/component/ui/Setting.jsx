@@ -29,10 +29,10 @@ const Setting = ({ data }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="grid grid-cols-1 md:grid-cols-2 gap-6"
+      transition={{ duration: 0.4 }}
+      className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6"
     >
       <SettingSection title="Base infomation">
         <Input

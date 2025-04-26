@@ -1,18 +1,22 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 export const SidebarContext = createContext();
 
 export const SidebarProvider = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth > 768;
+    }
+    return false;
+  });
+  const isFirstRender = useRef(true);
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleSidebar = () => setIsOpen((o) => !o);
 
   useEffect(() => {
+    isFirstRender.current = false;
     window.addEventListener("resize", () => {
       if (window.innerWidth > 768) {
         setIsOpen(true);
@@ -21,14 +25,14 @@ export const SidebarProvider = ({ children }) => {
   }, []);
 
   return (
-    <SidebarContext.Provider value={{ isOpen, toggleSidebar }}>
+    <SidebarContext.Provider value={{ isOpen, toggleSidebar, isFirstRender }}>
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={isFirstRender.current ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             onTap={() => {
               setIsOpen(false);
             }}
