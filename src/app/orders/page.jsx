@@ -1,45 +1,7 @@
-import Main from "@/component/layout/Main";
-import { fetchGet } from "@/utils/fetch";
+import { OrderList } from "@/components/features";
 
-const columns = [
-  {
-    key: "slug",
-    label: "Code",
-    mobile: true,
-  },
-  {
-    key: "total_price",
-    label: "Total",
-    price: true,
-    mobile: true,
-  },
-  {
-    key: "status",
-    label: "Status",
-    mark: true,
-    mobile: true,
-  },
-  {
-    key: "created_at",
-    label: "Created at",
-    date: true,
-  },
-  {
-    action: true,
-    mobile: true,
-  },
-];
-
-const OrderPage = async () => {
-  const data = await fetchGet("order/all");
-  return (
-    <Main
-      title={"Orders"}
-      desc={"Maganer orders and view details."}
-      data={data}
-      columns={columns}
-    />
-  );
+const OrdersPage = async () => {
+  return <OrderList />;
 };
 
 export async function generateMetadata() {
@@ -71,4 +33,4 @@ export async function generateMetadata() {
   };
 }
 
-export default OrderPage;
+export default OrdersPage;

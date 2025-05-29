@@ -2,7 +2,7 @@
 
 @layer utilities {
     .box {
-        @apply rounded-lg bg-white dark:bg-[#2e3033] border border-gray-200 dark:border-[#fcfcfc1f] p-4 md:p-6;
+        @apply rounded-lg bg-white dark:bg-[#27282b] border border-gray-200 dark:border-[#fcfcfc1f] p-4 md:p-6;
     }
 }
 
@@ -16,10 +16,29 @@
     font-family: var(--font-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-    * {
-        scrollbar-color: #3a3c40 transparent;
-    }
+*:focus {
+    outline-color: #00a63e;
+}
+
+:root {
+    --background: #ffffff;
+    --foreground: #3e4043;
+
+    --dark-900: #1f2023;
+    --dark-800: #27282b;
+    --dark-700: #2e3033;
+    --dark-600: #36383b;
+    --dark-500: #3e4043;
+}
+
+[type="number"]::-webkit-outer-spin-button,
+[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    accent-color: #00a63e;
 }
 
 #nprogress .bar {
@@ -28,4 +47,20 @@
 
 #nprogress .peg {
     box-shadow: 0 0 10px #00a63e, 0 0 5px #00a63e !important;
+}
+
+.go2072408551 {
+    background-color: #2e3033 !important;
+    color: #f1f1f1 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    * {
+        scrollbar-color: #3a3c40 transparent;
+    }
+
+    .go2072408551 {
+        background-color: #f1f1f1 !important;
+        color: #1f1f1f !important;
+    }
 }

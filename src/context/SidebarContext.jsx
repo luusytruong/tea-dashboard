@@ -5,23 +5,20 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 export const SidebarContext = createContext();
 
 export const SidebarProvider = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(() => {
-    if (typeof window !== "undefined") {
-      return window.innerWidth > 768;
-    }
-    return false;
-  });
+  const [isOpen, setIsOpen] = useState(true);
   const isFirstRender = useRef(true);
 
   const toggleSidebar = () => setIsOpen((o) => !o);
 
   useEffect(() => {
     isFirstRender.current = false;
-    window.addEventListener("resize", () => {
+    const handleResize = () => {
       if (window.innerWidth > 768) {
         setIsOpen(true);
       }
-    });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -36,7 +33,7 @@ export const SidebarProvider = ({ children }) => {
             onTap={() => {
               setIsOpen(false);
             }}
-            className="fixed inset-0 bg-black/40 z-40 md:hidden"
+            className="fixed inset-0 bg-black/40 z-[51] md:hidden"
           ></motion.div>
         )}
       </AnimatePresence>

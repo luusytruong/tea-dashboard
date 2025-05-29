@@ -1,10 +1,7 @@
-import Setting from "@/component/ui/Setting";
-import { fetchGet } from "@/utils/fetch";
+import Settings from "@/components/features/Settings";
 import Script from "next/script";
 
-const SettingPage = async () => {
-  const data = await fetchGet("company/info");
-
+const SettingsPage = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -23,7 +20,7 @@ const SettingPage = async () => {
       <div className="p-4 md:p-6 flex flex-col">
         <h1 className="text-2xl font-bold">Setting</h1>
         <p className="opacity-60 my-2">Setting information for site.</p>
-        <Setting data={data} />
+        <Settings />
       </div>
     </>
   );
@@ -58,4 +55,4 @@ export async function generateMetadata() {
   };
 }
 
-export default SettingPage;
+export default SettingsPage;

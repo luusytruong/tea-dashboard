@@ -1,59 +1,16 @@
-import Main from "@/component/layout/Main";
-import { fetchGet } from "@/utils/fetch";
-
-const columns = [
-  {
-    key: "avatar",
-    label: "",
-    img: true,
-  },
-  {
-    key: "full_name",
-    label: "Full name",
-    mobile: true,
-  },
-  {
-    key: "role",
-    label: "Role",
-    mark: true,
-    mobile: true,
-  },
-  {
-    key: "phone",
-    label: "Phone",
-  },
-  {
-    key: "created_at",
-    label: "Created",
-    date: true,
-  },
-  {
-    action: true,
-    mobile: true,
-  },
-];
-
-const Home = async () => {
-  const data = await fetchGet("user/list");
-  return (
-    <Main
-      title={"Customers"}
-      desc={"Maganer customers and view details."}
-      data={data}
-      columns={columns}
-    />
-  );
+const HomePage = async () => {
+  return <div>Overview page</div>;
 };
 
 export async function generateMetadata() {
   return {
-    title: "Bảng điều khiển Chè Thái - Khách hàng",
-    description: "Cập nhật Khách hàng cho Chè Thái",
+    title: "Bảng điều khiển Chè Thái",
+    description: "Tổng quan Chè Thái, hiệu suất, kinh doanh",
     alternates: { canonical: "https://luusytruong.xyz" },
     robots: { index: true, follow: true },
     openGraph: {
       title: "Bảng điều khiển Chè Thái - Khách hàng",
-      description: "Cập nhật Khách hàng cho Chè Thái",
+      description: "Tổng quan Chè Thái, hiệu suất, kinh doanh",
       url: "https://luusytruong.xyz",
       siteName: "Chè Thái",
       images: [
@@ -67,11 +24,11 @@ export async function generateMetadata() {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Bảng điều khiển Chè Thái - Khách hàng",
-      description: "Cập nhật Khách hàng cho Chè Thái",
+      title: "Bảng điều khiển Chè Thái",
+      description: "Tổng quan Chè Thái, hiệu suất, kinh doanh",
       images: ["https://luusytruong.xyz/banner.webp"],
     },
   };
 }
 
-export default Home;
+export default HomePage;

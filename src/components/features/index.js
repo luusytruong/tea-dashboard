@@ -1,0 +1,9 @@
+export { default as Settings } from "./Settings";
+export { default as BlogDetail } from "./blogs/BlogDetail";
+export { default as BlogList } from "./blogs/BlogList";
+export { default as CustomerDetail } from "./customers/CustomerDetail";
+export { default as CustomerList } from "./customers/CustomerList";
+export { default as OrderDetail } from "./orders/OrderDetail";
+export { default as OrderList } from "./orders/OrderList";
+export { default as ProductDetail } from "./products/ProductDetail";
+export { default as ProductList } from "./products/ProductList";
